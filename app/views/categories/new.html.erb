@@ -1,0 +1,23 @@
+<%= render 'content/content_title', title: "Create New Category" %>
+
+<% if @category.errors.any? %>
+  <div class="row">
+    <div class="alert alert-error span8" >
+      <h5>  Please fix the Below error...</h5>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %> </li>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class = 'well'>
+  <%= form_for @category do |f| %>
+    <div class= 'control-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit "Create Category" , class: "btn btn-primary" %>
+
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+
+<p class = "pull-right">
+  <%= link_to "edit this Category", edit_post_path(@post) %>
+</p>
+<%= render 'content/content_title', title: "Category: #{@category.name}"  %>
+<p>
+  <% @category.posts.each do |post| %>
+   <div class="row">
+    <div class="span8 well" >
+     <h4> <%= link_to post.title, post.url %> </h4>
+      <p> <%= post.description%></p>
+      <p>
+        <span class="quiet">posted by.......</span>
+        <small> at<%= post.created_at%>
+      </p>
+      <p>
+        <small>
+          <span>
+            <%= link_to("#{post.comments.size} comments", post_path(post))%>
+          </span>
+        </small>
+      </p>
+    </div>
+  </div>
+
+   <% end %>
+ </p>
+

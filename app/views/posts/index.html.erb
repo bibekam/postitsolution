@@ -1,0 +1,30 @@
+<p class="lead">
+  All Post
+  <hr/>
+</p>
+
+<% @posts.each do |post| %>
+  <div class="row">
+    <div class="span8 well" >
+<!--   <% post.categories.each do |category|%>
+      <span class="badge">
+       <%= category.name%>
+        </span>
+        <% end %>-->
+      <%= render post.categories %>
+    <h4> <%= link_to post.title, post.url %> </h4>
+      <p> <%= post.description%></p>
+      <p>
+        <span class="quiet">posted by.......</span>
+        <small> at<%= post.created_at%>
+      </p>
+      <p>
+        <small>
+          <span>
+            <%= link_to("#{post.comments.size} comments", post_path(post))%>
+          </span>
+        </small>
+      </p>
+    </div>
+  </div>
+<% end %>
